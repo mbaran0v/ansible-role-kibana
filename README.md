@@ -2,14 +2,12 @@
 
 [![Build Status](https://travis-ci.org/mbaran0v/ansible-role-kibana.svg?branch=master)](https://travis-ci.org/mbaran0v/ansible-role-kibana)
 
-=========
-
 **THIS ROLE IS FOR 6.x, 5.x.**
 
 Ansible role for 6.x/5.x Kibana. Currently this works on Debian and RedHat based linux systems. Tested platforms are:
 
-* Ubuntu 14.04
 * Ubuntu 16.04
+* Ubuntu 14.04
 * Debian 9
 * Debian 8
 * CentOS 7
