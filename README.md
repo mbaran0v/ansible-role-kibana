@@ -4,7 +4,7 @@
 
 **THIS ROLE IS FOR 6.x, 5.x.**
 
-Ansible role for 6.x/5.x Kibana. Currently this works on Debian and RedHat based linux systems. Tested platforms are:
+Ansible role for 6.x/5.x [Kibana](https://www.elastic.co/products/kibana). Currently this works on Debian and RedHat based linux systems. Tested platforms are:
 
 * Ubuntu 16.04
 * Ubuntu 14.04
@@ -54,9 +54,11 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: kibana
-      roles:
-         - { role: mbaran0v.kibana }
+```yaml
+- hosts: kibana
+  roles:
+      - { role: mbaran0v.kibana }
+```
 
 License
 -------

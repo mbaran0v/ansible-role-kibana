@@ -2,11 +2,13 @@
 
 sudo: required
 
+language: python
+
 services:
   - docker
 
 install:
-  - pip install docker
+  - pip install docker-py
   - pip install molecule
 
 script:
