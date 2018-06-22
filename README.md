@@ -1,4 +1,7 @@
-# ansible-role-kibana
+# Ansible role: Kibana
+
+[![Build Status](https://travis-ci.org/mbaran0v/ansible-role-kibana.svg?branch=master)](https://travis-ci.org/mbaran0v/ansible-role-kibana)
+
 =========
 
 **THIS ROLE IS FOR 6.x, 5.x.**
