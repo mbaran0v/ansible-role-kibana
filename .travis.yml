@@ -1,0 +1,16 @@
+---
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - 'sudo docker pull ${distribution}:${version}'
+
+install:
+  - pip install docker
+  - pip install molecule
+
+script:
+  - molecule test

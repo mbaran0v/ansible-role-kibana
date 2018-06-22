@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+
+    kibana_config_server:
+      server.port: 5602
+      server.host: "127.0.0.1"
+
+    kibana_config_es:
+      elasticsearch.url: "http://127.0.0.1:9201"
+      elasticsearch.preserveHost: true
+
+  pre_tasks:
+    - name: include tasks for preconf
+      import_tasks: preconf.yml
+
+  roles:
+    - role: ansible-role-kibana

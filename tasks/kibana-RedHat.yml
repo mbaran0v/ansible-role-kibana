@@ -1,0 +1,38 @@
+---
+
+- name: Ensure libselinux-python on CentOS 6.x
+  yum:
+    name: libselinux-python
+    state: present
+    update_cache: false
+  when: ( ansible_distribution == "CentOS" ) and ( ansible_distribution_major_version == "6" )
+
+- name: RedHat - add Elasticsearch repo
+  template:
+    src: elasticsearch.repo
+    dest: "/etc/yum.repos.d/elasticsearch-{{ kibana_major_version }}.repo"
+  when: kibana_use_repository
+
+- name: RedHat - include versionlock
+  include: kibana-RedHat-version-lock.yml
+  when: kibana_version_lock
+
+- name: RedHat - Install Kibana
+  yum:
+    name: 'kibana{% if kibana_version is defined and kibana_version != ""  %}-{{ kibana_version }}{% endif %}'
+    state: present
+    update_cache: false
+  when: kibana_use_repository
+  register: redhat_kibana_install_from_repo
+  notify: restart kibana
+  until: '"failed" not in redhat_kibana_install_from_repo'
+  retries: 5
+  delay: 10
+
+- name: RedHat - Install Kibana from url
+  yum:
+    name: "{% if kibana_custom_package_url is defined %}{{ kibana_custom_package_url }}{% else %}{{ kibana_package_url }}-{{ kibana_version }}-x86_64.rpm{% endif %}"
+    state: present
+  when: not kibana_use_repository
+  register: kibana_install_from_package
+  notify: restart kibana

@@ -1,0 +1,11 @@
+---
+
+- name: Copy Kibana configuration
+  copy:
+    content: "{{ kibana_config | to_nice_yaml }}"
+    dest: "{{ kibana_conf_dir }}/kibana.yml"
+    owner: "{{ kibana_user }}"
+    group: "{{ kibana_group }}"
+    mode: 0644
+    force: true
+  notify: restart kibana
