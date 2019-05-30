@@ -8,25 +8,18 @@ def test_distribution(host):
 
 
 def test_conf_dir(host):
-    f = host.file('/etc/logstash/conf.d')
+    f = host.file('/etc/kibana')
 
     assert f.exists
     assert f.is_directory
 
 
-def test_config(host):
+def test_config_file(host):
     f = host.file('/etc/kibana/kibana.yml')
 
     assert f.exists
     assert f.user == 'kibana'
     assert f.group == 'kibana'
-
-
-def test_log_dir(host):
-    f = host.file('/var/log/logstash')
-
-    assert f.exists
-    assert f.is_directory
 
 
 def test_service(host):
