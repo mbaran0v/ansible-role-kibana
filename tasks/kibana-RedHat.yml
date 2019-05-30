@@ -25,9 +25,6 @@
   when: kibana_use_repository
   register: redhat_kibana_install_from_repo
   notify: restart kibana
-  until: '"failed" not in redhat_kibana_install_from_repo'
-  retries: 5
-  delay: 10
 
 - name: RedHat - Install Kibana from url
   yum:

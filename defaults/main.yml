@@ -1,14 +1,13 @@
 ---
 
-kibana_major_version: "6.x"
-kibana_version: "6.3.0"
+kibana_major_version: "7.x"
+kibana_version: "7.1.1"
 kibana_package_name: "kibana"
 kibana_version_lock: false
 kibana_use_repository: true
 
-kibana_apt_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
-kibana_apt_url: "deb https://artifacts.elastic.co/packages/{{ kibana_major_version }}/apt stable main"
-kibana_start_service: true
+kibana_package_url: "https://artifacts.elastic.co/downloads/kibana/kibana"
+
 kibana_conf_dir: /etc/kibana
 
 kibana_user: kibana
@@ -48,7 +47,7 @@ kibana_config_misc:
   # pid.file: /var/run/kibana.pid
 
 kibana_config_logging:
-  # logging.dest: stdout
+  logging.dest: stdout
   logging.silent: false
   logging.quiet: false
   logging.verbose: false

@@ -1,0 +1,4 @@
+---
+
+kibana_yum_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+kibana_yum_url: "https://artifacts.elastic.co/packages/{{ kibana_major_version }}/yum"

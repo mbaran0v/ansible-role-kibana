@@ -1,0 +1,4 @@
+---
+
+kibana_apt_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+kibana_apt_url: "deb https://artifacts.elastic.co/packages/{{ kibana_major_version }}/apt stable main"
